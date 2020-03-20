@@ -49,7 +49,6 @@ create table study_plan
     subject_id   int,
     exam_type_id int,
     primary key (id)
-
 );
 
 create table journal
