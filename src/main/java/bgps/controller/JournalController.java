@@ -3,6 +3,7 @@ package bgps.controller;
 import bgps.dao.JournalJdbc;
 import bgps.dao.StudentJdbc;
 import bgps.model.JournalRecord;
+import bgps.model.JournalRecordExpanded;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -52,6 +53,16 @@ public class JournalController {
     @DeleteMapping("/journal/{id}")
     public JournalRecord delete(@PathVariable int id) {
         return journalRepository.delete(id);
+    }
+
+    @GetMapping("/journal")
+    public List<JournalRecordExpanded> getAllJournalRecords() {
+        return journalRepository.getAll();
+    }
+
+    @GetMapping("/study_group/{studyGroupId}")
+    public List<JournalRecordExpanded> getJournalRecordsByStudyGroup(@PathVariable int studyGroupId) {
+        return journalRepository.getAllByStudyGroup(studyGroupId);
     }
 }
 
