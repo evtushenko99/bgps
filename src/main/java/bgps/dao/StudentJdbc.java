@@ -70,4 +70,8 @@ public class StudentJdbc {
         delete(id);
         return add(student);
     }
+
+    public List<Student> getAllLocal() {
+        return jdbcTemplate.query("SELECT * FROM STUDENT_LOCAL", this::mapStudent);
+    }
 }
